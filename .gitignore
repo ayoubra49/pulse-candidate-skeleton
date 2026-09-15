@@ -1,0 +1,40 @@
+
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/config/secrets/prod/prod.decrypt.private.php
+/public/bundles/
+/var/
+/vendor/
+###< symfony/framework-bundle ###
+
+###> phpunit/phpunit ###
+/phpunit.xml
+/.phpunit.cache/
+/coverage
+###< phpunit/phpunit ###
+
+.idea/
+.vscode/
+*.iml
+
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+*.swp
+*.swo
+
+### Outils PHP ###
+.php-cs-fixer.cache
+.phpstan.cache
+
+### Logs et fichiers temporaires ###
+*.log
+*.pid
+*.tmp
+
+### Environnement HTTP Client privé ###
+/http-client.private.env.json
+

@@ -1,0 +1,85 @@
+@token = {{pulse_token}}
+@url = http://127.0.0.1:8080/devices/device-1/readings
+@reading_id = a08b0753369f1556
+
+
+### Vérifier la santé
+GET http://127.0.0.1:8080/health
+
+### Lister les mesures
+GET http://127.0.0.1:8080/devices/device-1/readings
+Authorization: Bearer {{token}}
+
+### Température normale : 39 n'est pas critique
+POST {{url}}
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "type": "temperature",
+    "value": 39,
+    "timestamp": "2026-09-15T10:00:00+00:00"
+}
+
+### Température critique : supérieure à 39
+POST {{url}}
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "type": "temperature",
+    "value": 39.1,
+    "timestamp": "2026-09-15T10:01:00+00:00"
+}
+
+### Fréquence cardiaque normale : 120 n'est pas critique
+POST {{url}}
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "type": "heart_rate",
+    "value": 120,
+    "timestamp": "2026-09-15T10:02:00+00:00"
+}
+
+### Fréquence cardiaque critique : supérieure à 120
+POST {{url}}
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "type": "heart_rate",
+    "value": 121,
+    "timestamp": "2026-09-15T10:03:00+00:00"
+}
+
+### Saturation normale : 90 n'est pas critique
+POST {{url}}
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "type": "oxygen_saturation",
+    "value": 90,
+    "timestamp": "2026-09-15T10:04:00+00:00"
+}
+
+### Saturation critique : inférieure à 90
+POST {{url}}
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "type": "oxygen_saturation",
+    "value": 89,
+    "timestamp": "2026-09-15T10:05:00+00:00"
+}
+
+### Vérifier toutes les mesures
+GET {{url}}
+Authorization: Bearer {{token}}
+
+### Supprimer une mesure existante
+DELETE {{url}}/{{reading_id}}
+Authorization: Bearer {{token}}

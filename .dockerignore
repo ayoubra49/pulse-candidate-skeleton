@@ -1,0 +1,10 @@
+vendor/
+var/
+.env.local
+.env.*.local
+http-client.private.env.json
+.idea/
+.vscode/
+.git/
+.DS_Store
+public/var/

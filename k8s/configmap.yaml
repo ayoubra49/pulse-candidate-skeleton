@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pulse-config
+  labels:
+    app: pulse-api
+data:
+  APP_ENV: "prod"
+  DATA_PATH: "/data/pulse.db"
+  LOG_LEVEL: "info"
+  JWT_SECRET: "e070e6d4c2ab1ff06b428f5bc833b75fac92783236719e1f"
